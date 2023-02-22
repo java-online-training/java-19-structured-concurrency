@@ -2,15 +2,21 @@ package jot.concurrency;
 
 public class CurrencyService {
 
-    enum Currency { USD , EUR , JPY , CAD , GBP  };
+    enum Currency { 
+        USD(1.2d) , EUR(1d) , JPY(144d) , CAD(1.44d) , GBP(0.88d); 
+        private Double rate;
 
-    public double getConvertionRate(Currency currency){
-        try {
-            Thread.sleep(500l);
-        } catch (InterruptedException e) {
-            System.out.println(e.getMessage());
-        }
-        return Math.random();
+        private Currency(Double rate){ this.rate = rate;}
+
+        public Double getRate(){ return rate; }
+    };
+
+    public Double getConvertionRate(Currency currency) throws InterruptedException{
+        Thread.sleep(500l);
+        return currency.getRate();
     }
-    
+
+    public ConversionResult getConvertionResult(Double amount, Currency target) throws InterruptedException {
+        return new ConversionResult(Double.valueOf(amount*getConvertionRate(target)), target);
+     }
 }
