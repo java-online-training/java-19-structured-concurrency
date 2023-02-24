@@ -22,6 +22,7 @@ public class CurrencyConverter {
 
         try(var scope = new StructuredTaskScope<Double>()){
 
+            // map to store the results. Key Currency, Value convertion rate
             Map<Currency,Future<Double>> results = new HashMap<>();
 
             results.put(USD, scope.fork( () -> currencyService.getConvertionRate(USD) ));
@@ -37,7 +38,7 @@ public class CurrencyConverter {
             scope.join();
 
             for(Currency currency : results.keySet()) {
-                System.out.println("Conversion rate for "+currency + " is "+results.get(currency).get() );
+                System.out.println("Conversion rate for "+ currency + " is "+ results.get(currency).get() );
             }
         }
     }
@@ -70,10 +71,12 @@ public class CurrencyConverter {
     public static void main(String[] args) throws InterruptedException, ExecutionException{
         var conv = new CurrencyConverter();
 
+        // get the euro conversion rates
         conv.getCurrencyConversionRates();
 
         System.out.println("-----------------------------");
         
+        // convert a speficic amount
         conv.getCurrencyConversions();
     }
 }
