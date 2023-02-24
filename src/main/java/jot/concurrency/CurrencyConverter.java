@@ -15,6 +15,9 @@ public class CurrencyConverter {
 
     private CurrencyService currencyService = new CurrencyService();
 
+     /**
+     * Example of structured concurrency with a StructuredTaskScope.
+     */
     public void getCurrencyConversionRates() throws InterruptedException, ExecutionException{
 
         try(var scope = new StructuredTaskScope<Double>()){
@@ -39,20 +42,22 @@ public class CurrencyConverter {
         }
     }
 
+    /**
+     * Example of structured concurrency with a custom scope.
+     */
     public void getCurrencyConversions() throws InterruptedException, ExecutionException{
 
         try(var scope = new CurrencyConverterScope()){
 
+            scope.fork( () -> currencyService.getEuroConvertionResult(100d, USD) );
 
-            scope.fork( () -> currencyService.getConvertionResult(100d, USD) );
+            scope.fork( () -> currencyService.getEuroConvertionResult(100d,JPY) );
 
-            scope.fork( () -> currencyService.getConvertionResult(100d,JPY) );
+            scope.fork( () -> currencyService.getEuroConvertionResult(100d,EUR) );
 
-            scope.fork( () -> currencyService.getConvertionResult(100d,EUR) );
+            scope.fork( () -> currencyService.getEuroConvertionResult(100d,CAD) );
 
-            scope.fork( () -> currencyService.getConvertionResult(100d,CAD) );
-
-            scope.fork( () -> currencyService.getConvertionResult(100d,GBP) );
+            scope.fork( () -> currencyService.getEuroConvertionResult(100d,GBP) );
 
             scope.join();
 
@@ -66,7 +71,9 @@ public class CurrencyConverter {
         var conv = new CurrencyConverter();
 
         conv.getCurrencyConversionRates();
+
         System.out.println("-----------------------------");
+        
         conv.getCurrencyConversions();
     }
 }

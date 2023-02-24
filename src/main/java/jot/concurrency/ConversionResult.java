@@ -2,8 +2,10 @@ package jot.concurrency;
 
 import jot.concurrency.CurrencyService.Currency;
 
-
-public record ConversionResult (Double amount, Currency target) {
+/**
+ * Result of the conversion of amount EUR into target currency
+ */
+public record ConversionResult (Double amount, Currency target, Double euroAmount) {
 
     @Override
     public String toString(){

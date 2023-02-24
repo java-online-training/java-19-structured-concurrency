@@ -16,7 +16,7 @@ public class CurrencyService {
         return currency.getRate();
     }
 
-    public ConversionResult getConvertionResult(Double amount, Currency target) throws InterruptedException {
-        return new ConversionResult(Double.valueOf(amount*getConvertionRate(target)), target);
+    public ConversionResult getEuroConvertionResult(Double amount, Currency target) throws InterruptedException {
+        return new ConversionResult(Double.valueOf(amount*getConvertionRate(target)), target, amount);
      }
 }
