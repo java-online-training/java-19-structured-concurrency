@@ -1,5 +1,6 @@
-package jot.concurrency;
+package jot.concurrency.advanced;
 
+import jot.concurrency.CurrencyService;
 import jot.concurrency.CurrencyService.Currency;
 
 /**

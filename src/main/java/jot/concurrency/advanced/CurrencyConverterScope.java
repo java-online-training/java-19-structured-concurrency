@@ -5,7 +5,6 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.Future;
 
 import jdk.incubator.concurrent.StructuredTaskScope;
-import jot.concurrency.ConversionResult;
 
 public class CurrencyConverterScope extends StructuredTaskScope<ConversionResult> {
 

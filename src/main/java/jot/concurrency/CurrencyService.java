@@ -1,5 +1,7 @@
 package jot.concurrency;
 
+import jot.concurrency.advanced.ConversionResult;
+
 public class CurrencyService {
 
     enum Currency { 

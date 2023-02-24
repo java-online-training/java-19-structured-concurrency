@@ -9,6 +9,7 @@ import java.util.concurrent.Future;
 
 import jdk.incubator.concurrent.StructuredTaskScope;
 import jot.concurrency.CurrencyService.Currency;
+import jot.concurrency.advanced.ConversionResult;
 import jot.concurrency.advanced.CurrencyConverterScope;
 
 public class CurrencyConverter {
