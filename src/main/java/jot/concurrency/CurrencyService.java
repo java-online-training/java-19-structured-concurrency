@@ -4,7 +4,7 @@ import jot.concurrency.advanced.ConversionResult;
 
 public class CurrencyService {
 
-    enum Currency { 
+    public enum Currency { 
         USD(1.2d) , EUR(1d) , JPY(144d) , CAD(1.44d) , GBP(0.88d); 
         private Double rate;
 
