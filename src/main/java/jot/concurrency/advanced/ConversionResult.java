@@ -1,7 +1,7 @@
 package jot.concurrency.advanced;
 
-import jot.concurrency.CurrencyService;
-import jot.concurrency.CurrencyService.Currency;
+import jot.concurrency.CurrencyConversionService;
+import jot.concurrency.CurrencyConversionService.Currency;
 
 /**
  * Result of the conversion of amount EUR into target currency

@@ -1,6 +1,6 @@
 package jot.concurrency;
 
-import static jot.concurrency.CurrencyService.Currency.*;
+import static jot.concurrency.CurrencyConversionService.Currency.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -8,13 +8,13 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 
 import jdk.incubator.concurrent.StructuredTaskScope;
-import jot.concurrency.CurrencyService.Currency;
+import jot.concurrency.CurrencyConversionService.Currency;
 import jot.concurrency.advanced.ConversionResult;
 import jot.concurrency.advanced.CurrencyConverterScope;
 
 public class CurrencyConverter {
 
-    private CurrencyService currencyService = new CurrencyService();
+    private CurrencyConversionService currencyService = new CurrencyConversionService();
 
      /**
      * Example of structured concurrency with a StructuredTaskScope.

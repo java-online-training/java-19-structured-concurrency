@@ -10,7 +10,7 @@ public class SimpleExample {
 
     public static void main(String[] args) throws InterruptedException, ExecutionException {
         try (var scope = new StructuredTaskScope<String>()){
-            Callable<String> callable = () -> "Running ...";
+            Callable<String> callable = () -> "Running ... Finished!";
 
             Future<String> result = scope.fork(callable);
             
