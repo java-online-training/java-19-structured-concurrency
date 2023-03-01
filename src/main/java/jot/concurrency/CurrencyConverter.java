@@ -63,7 +63,7 @@ public class CurrencyConverter {
 
             scope.join();
 
-            for(ConversionResult result : scope.getResults()) {
+            for(var result : scope.getResults()) {
                 System.out.println(result);
             }
         }
