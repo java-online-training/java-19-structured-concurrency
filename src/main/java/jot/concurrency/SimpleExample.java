@@ -17,9 +17,6 @@ public class SimpleExample {
             scope.join();
             
             System.out.println(result.get());
-        }
-
-        
+        }   
     }
-    
 }

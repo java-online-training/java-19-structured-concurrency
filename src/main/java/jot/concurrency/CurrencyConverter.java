@@ -38,7 +38,7 @@ public class CurrencyConverter {
 
             scope.join();
 
-            for(Currency currency : results.keySet()) {
+            for(var currency : results.keySet()) {
                 System.out.println("Conversion rate for "+ currency + " is "+ results.get(currency).get() );
             }
         }
